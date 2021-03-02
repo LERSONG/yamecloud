@@ -5,6 +5,7 @@ import (
 	"github.com/yametech/yamecloud/pkg/k8s"
 	"github.com/yametech/yamecloud/pkg/utils"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
+	"k8s.io/client-go/kubernetes"
 	"strconv"
 	"strings"
 )
@@ -85,6 +86,7 @@ type Interface interface {
 	ForceUpdate(namespace string, resource k8s.ResourceType, name string, unstructuredExtend *UnstructuredExtend) (*UnstructuredExtend, error)
 	Delete(namespace string, resource k8s.ResourceType, name string) error
 	Install(k8s.ResourceType, IResourceService)
+	RESTClientSet() *kubernetes.Clientset
 }
 
 var _ Interface = &Service{}
@@ -138,6 +140,10 @@ var _ Interface = &FakeService{}
 
 type FakeService struct {
 	Data map[string]interface{}
+}
+
+func (f *FakeService) RESTClientSet() *kubernetes.Clientset {
+	panic("implement me")
 }
 
 func (f *FakeService) ForceUpdate(namespace string, resource k8s.ResourceType, name string, unstructuredExtend *UnstructuredExtend) (*UnstructuredExtend, error) {

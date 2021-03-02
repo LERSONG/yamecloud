@@ -5,6 +5,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/dynamic/dynamicinformer"
+	"k8s.io/client-go/kubernetes"
 )
 
 type ResourceType = string
@@ -53,4 +54,5 @@ type Interface interface {
 	Watcher
 	ICache
 	IDataOperator
+	RESTClientSet() *kubernetes.Clientset
 }

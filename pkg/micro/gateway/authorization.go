@@ -63,7 +63,8 @@ func (auth *Authorization) IsNeedSkip(method, path string) (bool, error) {
 	if method == value {
 		return true, nil
 	}
-	if strings.Contains(path, "/workload/shell/pod") ||
+	if strings.Contains(path, "/shell/pod") ||
+		strings.Contains(path, "/attach/") ||
 		strings.Contains(path, "/webhook") {
 		return true, nil
 	}
