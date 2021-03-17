@@ -27,8 +27,9 @@ const (
 	HorizontalPodAutoscaler  ResourceType = "horizontalpodautoscalers"
 	CustomResourceDefinition ResourceType = "customresourcedefinitions"
 	PersistentVolume         ResourceType = "persistentvolumes"
-	PersistentVolumeClaims   ResourceType = "persistentvolumeclaims"
+	PersistentVolumeClaim    ResourceType = "persistentvolumeclaims"
 	StorageClass             ResourceType = "storageclasses"
+	CephRBDStorage           ResourceType = "cephrbdstorages"
 	ServiceAccount           ResourceType = "serviceaccounts"
 	Role                     ResourceType = "roles"
 	ClusterRole              ResourceType = "clusterroles"
@@ -141,25 +142,26 @@ var GVRMaps IGVRMaps = &groupVersionCollection{
 	Job:      {Group: "batch", Version: "v1", Resource: "jobs"},
 	CronJobs: {Group: "batch", Version: "v1beta1", Resource: "cronjobs"},
 
-	Pod:                    {Group: "", Version: "v1", Resource: "pods"},
-	Node:                   {Group: "", Version: "v1", Resource: "nodes"},
-	Event:                  {Group: "", Version: "v1", Resource: "events"},
-	ConfigMaps:             {Group: "", Version: "v1", Resource: "configmaps"},
-	Secrets:                {Group: "", Version: "v1", Resource: "secrets"},
-	ResourceQuota:          {Group: "", Version: "v1", Resource: "resourcequotas"},
-	Service:                {Group: "", Version: "v1", Resource: "services"},
-	Namespace:              {Group: "", Version: "v1", Resource: "namespaces"},
-	PersistentVolume:       {Group: "", Version: "v1", Resource: "persistentvolumes"},
-	PersistentVolumeClaims: {Group: "", Version: "v1", Resource: "persistentvolumeclaims"},
-	ServiceAccount:         {Group: "", Version: "v1", Resource: "serviceaccounts"},
-	Endpoint:               {Group: "", Version: "v1", Resource: "endpoints"},
+	Pod:                   {Group: "", Version: "v1", Resource: "pods"},
+	Node:                  {Group: "", Version: "v1", Resource: "nodes"},
+	Event:                 {Group: "", Version: "v1", Resource: "events"},
+	ConfigMaps:            {Group: "", Version: "v1", Resource: "configmaps"},
+	Secrets:               {Group: "", Version: "v1", Resource: "secrets"},
+	ResourceQuota:         {Group: "", Version: "v1", Resource: "resourcequotas"},
+	Service:               {Group: "", Version: "v1", Resource: "services"},
+	Namespace:             {Group: "", Version: "v1", Resource: "namespaces"},
+	PersistentVolume:      {Group: "", Version: "v1", Resource: "persistentvolumes"},
+	PersistentVolumeClaim: {Group: "", Version: "v1", Resource: "persistentvolumeclaims"},
+	ServiceAccount:        {Group: "", Version: "v1", Resource: "serviceaccounts"},
+	Endpoint:              {Group: "", Version: "v1", Resource: "endpoints"},
 
 	Ingress:                  {Group: "extensions", Version: "v1beta1", Resource: "ingresses"},
 	NetworkPolicy:            {Group: "networking.k8s.io", Version: "v1", Resource: "networkpolicies"},
 	HorizontalPodAutoscaler:  {Group: "autoscaling", Version: "v2beta1", Resource: "horizontalpodautoscalers"},
 	CustomResourceDefinition: {Group: "apiextensions.k8s.io", Version: "v1beta1", Resource: "customresourcedefinitions"},
 
-	StorageClass: {Group: "storage.k8s.io", Version: "v1", Resource: "storageclasses"},
+	StorageClass:   {Group: "storage.k8s.io", Version: "v1", Resource: "storageclasses"},
+	CephRBDStorage: {Group: "yamecloud.io", Version: "v1", Resource: "cephrbdstorages"},
 
 	ClusterRole:        {Group: "rbac.authorization.k8s.io", Version: "v1", Resource: "clusterroles"},
 	Role:               {Group: "rbac.authorization.k8s.io", Version: "v1", Resource: "roles"},

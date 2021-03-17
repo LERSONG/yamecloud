@@ -354,7 +354,7 @@ var PermissionTree = TreeNode{
 					},
 				},
 				{
-					Name: k8s.PersistentVolumeClaims,
+					Name: k8s.PersistentVolumeClaim,
 					Children: []*TreeNode{
 						{Name: View},
 						{Name: Apply},
